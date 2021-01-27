@@ -46,6 +46,22 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	
+<profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.user>admin</sonar.user>
+                <sonar.password>sdet2020</sonar.password>
+            </properties>
+        </profile>
+    </profiles>
+	
 
 	<build>
 		<plugins>
