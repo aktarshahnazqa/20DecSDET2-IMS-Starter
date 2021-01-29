@@ -17,7 +17,11 @@ public class ItemsController implements ICrudController<Items> {
 
     public ItemsController(ItemsDao itemsDao, JavaUtilities javaUtilities) {
         super();
+
+        this.itemsDao = itemsDao; 
+
         this.itemsDao = itemsDao;
+
         this.javaUtilities = javaUtilities;
        }
     
@@ -26,7 +30,11 @@ public class ItemsController implements ICrudController<Items> {
     public List<Items> readAll() {
         List<Items> items = itemsDao.readAll();
         for (Items item : items) {
+
+            LOGGER.info(item.toString()); 
+
             LOGGER.info(item.toString());
+
         }
         return items;
     }
@@ -51,7 +59,11 @@ public class ItemsController implements ICrudController<Items> {
         String itemname = javaUtilities.getString();
         LOGGER.info("Please enter a price");
         Double price = javaUtilities.getDouble();
+
+        LOGGER.info("Please enter the price of your item");
+
         LOGGER.info("Please enter description for your item");
+
         String genre = javaUtilities.getString();
         Items items = itemsDao.update (new Items(itemname, price, genre));
         LOGGER.info("Items updated");
@@ -66,4 +78,8 @@ public class ItemsController implements ICrudController<Items> {
     }
 
 
+
 }
+
+}
+

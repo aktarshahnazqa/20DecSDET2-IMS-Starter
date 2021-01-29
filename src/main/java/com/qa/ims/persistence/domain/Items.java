@@ -10,7 +10,11 @@ public class Items {
 	public Items(Long id, String item_name, Double price, String genre) {
 		this.seti_id(id);
 		this.setitem_name(item_name);
+
+		this.setprice(price); 
+
 		this.setprice(price);
+
 		this.setgenre(genre);
 	}
 
@@ -103,4 +107,8 @@ public class Items {
 		return true;
 	}
 
+
 }
+
+}
+
