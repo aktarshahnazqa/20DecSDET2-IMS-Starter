@@ -1,127 +1,138 @@
-package com.qa.ims.persistence.domain;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Orders {
-
-	private Long o_id;
-	private Double Price;
-	private Customer customer;
-	private List <Items> orderItems = new ArrayList<>();
-
-	public Orders(Long o_id, Double price, Customer customer, List<Items> orderItems) {
-		super();
-		this.o_id = o_id;
-		Price = price; 
-		this.customer = customer;
-		this.orderItems = orderItems;
-	}
-	
-	public Orders(Long o_id, Double price, Customer customer) {
-		super();
-		this.o_id = o_id;
-		Price = price;
-		this.customer = customer;
-	}
-
-	public Orders(Customer customer, Double price) {
-		super();
-		Price = price;
-		this.customer = customer;
-	}
-
-	public Long geto_id() {
-		return o_id;
-	}
-
-	public void seto_id(Long o_id) {
-		this.o_id = o_id;
-	}
-	
-	public Double getPrice() {
-		return Price;
-	}
-
-	public void setPrice(Double price) {
-		Price = price;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-	
-	public List<Items> getItems(){
-		return orderItems;
-	}
-	
-	public void setItems (List<Items> orderitems) {
-		this.orderItems = orderitems;
-	}
-	
-
-	@Override
-	public String toString() {
-		return "o_id:" + o_id + " Price:" + Price + " customer:" + customer;
-	}
-
+//package com.qa.ims.persistence.domain;
+//
+//import java.util.ArrayList;
+//
+//import java.util.List;
+//
+//public class Orders {
+//	
+//	private Long o_id;
+//	private Customer customer;
+//	private double price;
+//	private List<Items> itemi_id = new ArrayList<>();
+//	
+//	
+//	public Orders(Customer customer, double price) {
+//		super();
+//		this.customer = customer;
+//		this.price = price;
+//	}
+//	
+//
+//	public Orders(Long o_id, Customer customer, double price, List<Items> itemi_id) {
+//		super();
+//		this.o_id = o_id;
+//		this.customer = customer;
+//		this.price= price;
+//		this.itemi_id = itemi_id;
+//		
+//	}
+//	
+//	public Orders(Long o_id, Customer customer, double price) {
+//		super();
+//		this.o_id = o_id;
+//		this.customer = customer;
+//		this.price = price;
+//		
+//		
+//	}
+//
+//	
+//	public Orders(Long orderId,Customer customer) {
+//		super();
+//		this.o_id = orderId;
+//		this.customer = customer;
+//		
+//	}
+//
+//
+//	public Long geto_id() {
+//		return o_id;
+//	}
+//
+//	public void seto_id(Long o_id) {
+//		this.o_id = o_id;
+//	}
+//
+//	
+//
+//	public double getprice() {
+//		return price;
+//	}
+//
+//	public void setprice(double price) {
+//		this.price = price;
+//	}
+//
+//	
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
+//
+//	public List<Items> getitemi_id() {
+//		return itemi_id;
+//	}
+//
+//
+//	public void setOrderItems(List<Items> itemi_id) {
+//		this.itemi_id =itemi_id;
+//	}
+//
+//
 //	@Override
 //	public String toString() {
-//		StringBuilder Orders = new StringBuilder();
-//		Orders.append(
-//				String.format("%s: %s %s %s ", this.o_id, this.order_date, ordercustomer.getFirstName(), ordercustomer.getSurname()));
-//		if (this.orderItems.isEmpty()) {
-//			Orders.append( "\n -> Cannot find any items in this order");
-//				} else {
-//					this.orderItems.forEach(item -> {
-//						Orders.append("\n ->");
-//						Orders.append(String.format("%s %s", item.getFirstName(), itemcustomer.getSurname()));
-//						
-//					});
-//						
-//					}
-//					return order_date.toString();
+//		return "Orders [o_id=" + o_id + ", customer=" + customer + ", price=" + price + ", i_id="
+//				+ itemi_id + "]";
 //	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Price == null) ? 0 : Price.hashCode());
-		result = prime * result + ((o_id == null) ? 0 : o_id.hashCode());
-		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
-		
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Orders other = (Orders) obj;
-		if (getPrice() == null) {
-			if (other.getPrice() != null)
-				return false;
-		} else if (!getPrice().equals(other.getPrice()))
-			return false;
-		if (o_id == null) {
-			if (other.o_id != null)
-				return false;
-		} else if (!o_id.equals(other.o_id))
-			return false;
-		if (customer == null) {
-			if (other.customer != null)
-				return false;
-		} else if (!customer.equals(other.customer))
-			return false;
-		return true;
-	}
-
-}
+//
+//
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
+//		result = prime * result + ((o_id == null) ? 0 : o_id.hashCode());
+//		result = prime * result + ((itemi_id == null) ? 0 : itemi_id.hashCode());
+//		long temp;
+//		temp = Double.doubleToLongBits(price);
+//		result = prime * result + (int) (temp ^ (temp >>> 32));
+//		return result;
+//	}
+//
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Orders other = (Orders) obj;
+//		if (customer == null) {
+//			if (other.customer != null)
+//				return false;
+//		} else if (!customer.equals(other.customer))
+//			return false;
+//		if (o_id == null) {
+//			if (other.o_id != null)
+//				return false;
+//		} else if (!o_id.equals(other.o_id))
+//			return false;
+//		if (itemi_id == null) {
+//			if (other.itemi_id != null)
+//				return false;
+//		} else if (!itemi_id.equals(other.itemi_id))
+//			return false;
+//		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+//			return false;
+//		return true;
+//	}
+//
+//
+//}
