@@ -70,8 +70,8 @@ public class OrdersDao implements IDomainDao<Orders> {
 //	  List<Items> priceItem = new ArrayList<>();
 //	  for ( double d = 0.0 ;
 //			priceItem + = resultSet.getDouble("price"));
-//	  
-//			
+//	  /
+//		
 //	  }
   
     
