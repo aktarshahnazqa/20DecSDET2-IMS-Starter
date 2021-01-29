@@ -1,42 +1,28 @@
 Coverage: 34%
-# Project Title
+Jira board link: https://team-1608043141911.atlassian.net/secure/RapidBoard.jspa?rapidView=3&projectKey=PRJ&selectedIssue=PRJ-7
 
-One Paragraph of project description goes here
+#IMS Database
+This project is an application for users to input data to either create, read, update or delete from customers, items or orders.
 
 ## Getting Started
+Firstly make sure you have downloaded gitbash and eclipse in order to use this repo. then frok this repo and clone the url from your account and clone into git bash by coping with the following line of code 
+git clone (paste your url). once this file has saved onto your documents, go ahead and open up eclipse to get started.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+please download Eclipse, gitbash, mysql (any version is suitable)
+if you need more help on how to install it, you can find instructions on oracle.com.
+For extra help on making sure you application is running well, sonarque is free and can advise you which area may have errors or ways to improve.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+To get started, make sure to save the forked files in a place which you can access easily. On the left hand side there will be a tab called package epxplorer in which you can see all the files. From their you can start working. to run your application either right click and go to run as then select java application or on the top bar there is a green play button that will also run application as long as you are on the runner.java.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
-
+To run a test
 ### Unit Tests 
 
 Explain what these tests test, why and how to run them
