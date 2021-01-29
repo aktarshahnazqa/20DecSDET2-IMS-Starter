@@ -17,6 +17,12 @@ public class OrdersController implements ICrudController<Orders> {
     private OrdersDao ordersDao;
     private JavaUtilities javaUtilities;
 
+    public OrdersController(OrdersDao ordersDAO, JavaUtilities javaUtilities) {
+    	super();
+    	this.ordersDao = ordersDAO;
+    	this.javaUtilities = javaUtilities;
+    } 
+    
     
     @Override
     public List<Orders> readAll() {
@@ -33,7 +39,7 @@ public class OrdersController implements ICrudController<Orders> {
         LOGGER.info("Please enter your customer id");
         Long id = javaUtilities.getLong();
         Orders orders = ordersDao.create(new Orders (new Customer(id,null,null),0.0)); 
-        LOGGER.info("Price entered");
+        LOGGER.info("order entered");
         return orders;
     }
 
@@ -49,11 +55,11 @@ public class OrdersController implements ICrudController<Orders> {
         	Long i_id = javaUtilities.getLong();
         	price = OrdersDao.addItems(o_id, i_id);
         } else if (action.equals("Remove")) {
-        	LOGGER.info("Please enter the item i_id you would like to delete");
+        	LOGGER.info("Please enter the item i_id you would like to Remove");
         	Long i_id = javaUtilities.getLong();
         	price = OrdersDao.deleteItems(o_id, i_id);
         } else {
-        	LOGGER.info("Invalid input, please choose Add or delete");
+        	LOGGER.info("Invalid input, please choose add or Removee");
         }
       
       return price;

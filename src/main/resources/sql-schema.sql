@@ -22,7 +22,7 @@ CREATE TABLE  `ims`.`items` (
 
 CREATE TABLE `ims`.`orders` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `order_date` DATE NOT NULL,
+    `price` DATE NOT NULL,
      cid INT,
      PRIMARY KEY (`id`),
      FOREIGN KEY (cid) REFERENCES customers (id)

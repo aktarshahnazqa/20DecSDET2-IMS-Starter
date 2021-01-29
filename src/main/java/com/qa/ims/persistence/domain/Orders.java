@@ -12,7 +12,7 @@ public class Orders {
 	public Orders(Long o_id, Double price, Customer customer, List<Items> orderItems) {
 		super();
 		this.o_id = o_id;
-		Price = price;
+		Price = price; 
 		this.customer = customer;
 		this.orderItems = orderItems;
 	}

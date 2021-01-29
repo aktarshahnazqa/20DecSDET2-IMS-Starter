@@ -56,7 +56,7 @@
             </activation>
             <properties>
                 <sonar.host.url>http://localhost:9000</sonar.host.url>
-                <sonar.user>admin</sonar.user>
+                <sonar.login> admin</sonar.login>
                 <sonar.password>sdet2020</sonar.password>
             </properties>
         </profile>

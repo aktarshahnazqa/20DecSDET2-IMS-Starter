@@ -16,7 +16,7 @@ import com.qa.ims.utils.DatabaseUtilities;
 public class ItemsDao implements IDomainDao<Items> {
 
 	 public static final Logger LOGGER = LogManager.getLogger();
-   
+    
 	 @Override
     public Items modelFromResultSet(ResultSet resultSet) throws SQLException {
         Long i_id = resultSet.getLong("id");
@@ -24,7 +24,7 @@ public class ItemsDao implements IDomainDao<Items> {
         Double price = resultSet.getDouble("Price");
         String genre= resultSet.getString("genre");
         return new Items(i_id, itemname, price,genre);
-    }
+    } 
    
     @Override
     public List<Items> readAll() {

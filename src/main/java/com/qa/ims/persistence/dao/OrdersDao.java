@@ -27,18 +27,19 @@ public class OrdersDao implements IDomainDao<Orders> {
     public static final Logger LOGGER = LogManager.getLogger();
     
     private ItemsDao itemsDao;
-    private CustomerDao customerDao;
+    private CustomerDao customerDao; 
     
     public OrdersDao(ItemsDao itemsDao, CustomerDao customerDao) {
 		super();
-		this.itemsDao = itemsDao;
+		this.itemsDao = itemsDao; 
 		this.customerDao = customerDao;
 	}
-    public List<Items> getallItems(Long o_id){
-    	List<Items>itemi_id = new ArrayList<>();
+    
+    public List<Items> getAllItems(Long o_id, List<Items> finalItems){
+    	List<Long>itemi_id = new ArrayList<>();
     	try(Connection connection = DatabaseUtilities.getInstance().getConnection();
     			PreparedStatement statement = connection
-    					.prepareStatement("SELECT*FROM orderitems WHERE fkoid =?");){
+    					.prepareStatement("SELECT * FROM orderitems WHERE fkoid =?");){
     						statement.setLong(1, o_id);
     						try(ResultSet resultSet = statement.executeQuery();){
     							while (resultSet.next()) {
@@ -49,20 +50,31 @@ public class OrdersDao implements IDomainDao<Orders> {
     						LOGGER.debug(e);
     						LOGGER.error(e.getMessage());
     					}
-    	return itemi_id.stream().map(itemiid -> itemsDao.read(itemiid)).collect(Collectors.toList());
+    	for (Long i: itemi_id) {
+    		finalItems.add(itemsDao.read(i));
+    	}
+    	return finalItems;
     }
-   
+
+
+//  public double calcprice1 (Long o_id) {
+//	   double price = this.getAllItems(o_id).stream().map(item -> 
+//	   item.getPrice ()).reduce ((acc, next) -> acc + next)
+//		.orElse(0,0);
+//	   this.update(new Orders(o_id, price, null));
+//	   return price;
+// }
+
+//  public double calcprice (Long o_id) {
+//	  List<Long>Itemi_id = new ArrayList<>();
+//	  List<Items> priceItem = new ArrayList<>();
+//	  for ( double d = 0.0 ;
+//			priceItem + = resultSet.getDouble("price"));
+//	  
+//			
+//	  }
+  
     
-    
-    
-   public double calcprice (Long o_id) {
-	   double price = this.getallItems(o_id).stream().map(item -> 
-	   item.getPrice ()).reduce ((acc, next) -> acc + next)
-		.orElse(0,0);
-	   this.update(new Orders(o_id,null, price));
-	   return price;
-   }
-   
    public Orders addItems (Long o_id, Long i_id){
 	   try (Connection connection = DatabaseUtilities.getInstance().getConnection();
                PreparedStatement statement = connection
@@ -76,9 +88,7 @@ public class OrdersDao implements IDomainDao<Orders> {
 			   LOGGER.error(e.getMessage());
 		   }
 	   calcprice(o_id);
-	   return read (o_id);
-            		   
-	   
+	   return read (o_id); 
    }
    
    public Orders deleteItems (Long o_id, Long i_id){
@@ -176,9 +186,7 @@ public class OrdersDao implements IDomainDao<Orders> {
         }
         return null;
     }
-    
-    
-
+ 
     @Override
     public int delete(long o_id) {
         try (Connection connection = DatabaseUtilities.getInstance().getConnection();
